@@ -41,10 +41,13 @@ router ospf
 passive-interface default
 network 192.168.1.0/28 area 0
 network 192.168.0.0/28 area 0
+exit
 interface enp7s1
 no ip ospf passive
 ip ospf authentication message-digest
 ip ospf message-digest-key 1 md5 P@ssw0rd
+do wr
+exit
 
 EOF
 
