@@ -17,7 +17,7 @@ sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/" "/etc/net/sysctl.con
 #Создание enp0s8
 mkdir -p /etc/net/ifaces/enp7s2
 cp -r /etc/net/ifaces/enp7s1/options /etc/net/ifaces/enp7s2/options
-echo "192.168.0.1/28" > /etc/net/ifaces/enp7s2/ipv4address
+echo "192.168.0.1/30" > /etc/net/ifaces/enp7s2/ipv4address
 
 # Настройка маршутизации
 sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/" "/etc/net/sysctl.conf"
@@ -39,7 +39,7 @@ systemctl enable --now frr
 cat <<EOF > /etc/frr/frr.conf
 router ospf
 passive-interface default
-network 192.168.1.0/28 area 0
+network 192.168.1.0/30 area 0
 network 192.168.0.0/28 area 0
 exit
 interface enp7s1
