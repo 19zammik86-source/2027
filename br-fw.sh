@@ -1,6 +1,6 @@
 #!/bin/bash
 # Настройка hostname
-hostnamectl set-hostname br-fw.au-team.irpo
+hostnamectl set-hostname br-fw.au-team.irpo; exec bash
 
 apt-get update && apt-get install -y chrony tzdata
 
