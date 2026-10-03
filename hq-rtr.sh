@@ -99,14 +99,14 @@ systemctl enable --now frr
 vtysh << 'EOF'
 conf
 router ospf
-passive-interface default
+#passive-interface default
 network 192.168.100.0/27 area 0
 network 192.168.200.0/28 area 0
-network 192.168.999.0/29 area 0
+network 192.168.99.0/29 area 0
 network 10.10.10.0/30 area 0
 exit
 int tun0
-no ip ospf passive
+#no ip ospf passive
 ip ospf authentication message-digest
 ip ospf message-digest-key 1 md5 P@ssw0rd
 do wr
